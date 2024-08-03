@@ -1,4 +1,6 @@
-// import Coordinates
+package avaj.generators;
+
+import avaj.utils.Coordinates;
 
 public class WeatherProvider {
 	private static WeatherProvider instance;

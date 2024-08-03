@@ -1,4 +1,7 @@
-// import Aircraft
+package avaj.flyable;
+
+import avaj.flyable.Aircraft;
+import avaj.utils.Coordinates;
 
 public class Baloon extends Aircraft {
 

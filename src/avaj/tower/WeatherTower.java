@@ -1,6 +1,8 @@
-// import Tower
-// import Coordinates
-// import WeatherProvider
+package avaj.tower;
+
+import avaj.tower.Tower;
+import avaj.utils.Coordinates;
+import avaj.generators.WeatherProvider;
 
 public class WeatherTower extends Tower {
 

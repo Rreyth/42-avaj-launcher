@@ -1,8 +1,9 @@
-// import Flyable
-// imnport Baloon
-// import JetPlane
-// import Helicopter
+package avaj.generators;
 
+import avaj.flyable.Flyable;
+import avaj.flyable.Baloon;
+import avaj.flyable.JetPlane;
+import avaj.flyable.Helicopter;
 
 public class AircraftFactory {
 	private static AircraftFactory instance;

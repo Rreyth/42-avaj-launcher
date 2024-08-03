@@ -1,5 +1,7 @@
-// import Flyable
-// import Coordinates
+package avaj.flyable;
+
+import avaj.utils.Coordinates;
+import avaj.flyable.Flyable;
 
 public class Aircraft extends Flyable {
 

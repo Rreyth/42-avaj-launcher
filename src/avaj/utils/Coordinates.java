@@ -1,3 +1,5 @@
+package avaj.utils;
+
 public class Coordinates {
 
 	private int longitude;

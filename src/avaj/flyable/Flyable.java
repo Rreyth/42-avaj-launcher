@@ -1,4 +1,6 @@
-// import WeatherTower
+package avaj.flyable;
+
+import avaj.tower.WeatherTower;
 
 public abstract class Flyable {
 

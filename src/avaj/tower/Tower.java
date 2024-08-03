@@ -1,7 +1,8 @@
+package avaj.tower;
+
+import avaj.flyable.Flyable;
 import java.util.ArrayList;
 import java.util.List;
-
-// import Flyable
 
 public class Tower {
 
