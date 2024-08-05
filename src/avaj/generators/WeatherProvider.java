@@ -1,9 +1,10 @@
 package avaj.generators;
 
-import avaj.utils.Coordinates;
+import avaj.flyable.Coordinates;
 
 public class WeatherProvider {
-	private static WeatherProvider instance;
+
+	private static WeatherProvider instance = null;
 	private String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
 	private WeatherProvider() {

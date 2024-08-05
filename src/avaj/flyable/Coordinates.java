@@ -1,4 +1,4 @@
-package avaj.utils;
+package avaj.flyable;
 
 public class Coordinates {
 
@@ -22,5 +22,11 @@ public class Coordinates {
 
 	public int getHeight() {
 		return this.height;
+	}
+
+	public void updateCoordinates(int p_longitude, int p_latitude, int p_height) {
+		this.longitude = p_longitude;
+		this.latitude = p_latitude;
+		this.height = p_height;
 	}
 }

@@ -1,7 +1,7 @@
 package avaj.flyable;
 
-import avaj.utils.Coordinates;
 import avaj.flyable.Flyable;
+import avaj.flyable.Coordinates;
 
 public class Aircraft extends Flyable {
 
@@ -9,14 +9,13 @@ public class Aircraft extends Flyable {
 	protected String name;
 	protected Coordinates coordinates;
 
-	public Aircraft(long p_id, String p_name, Coordinates p_coordinate){
+	public Aircraft(long p_id, String p_name, int p_longitude, int p_latitude, int p_height){
 		this.id = p_id;
 		this.name = p_name;
-		this.coordinates = p_coordinate;
+		this.coordinates = new Coordinates(p_longitude, p_latitude, p_height);
 	}
 
 	@Override
 	public void updateConditions(){
-
 	}
 }
