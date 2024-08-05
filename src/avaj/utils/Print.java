@@ -4,11 +4,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Print {
-	public static void print(String p_message) {
+	public static void print(Object p_message) {
 		System.out.println(p_message);
 	}
 
-	public static void printErr(String p_message) {
+	public static void printErr(Object p_message) {
 		System.err.println(p_message);
 	}
 

@@ -10,16 +10,15 @@ public class Tower {
 
 	private List<Flyable> observers = new ArrayList<>();
 
-	public void register(Flyable p_flyable){ //add to list + print
+	public void register(Flyable p_flyable){
 		observers.add(p_flyable);
-		String infos = "test";  // Baloon#B1(1) -> type, #name, (id) // getters dans Aircraft + type getter surcharger dans les sous classes
+		String infos = p_flyable.getInfos();
 		Print.print("Tower says: " + infos + " registered to weather tower.");
 	}
 
-	public void unregister(Flyable p_flyable){ //rm from list + print
-		// Tower says: Baloon#B1(1) unregistered from weather tower.
+	public void unregister(Flyable p_flyable){
 		observers.remove(p_flyable);
-		String infos = "tqt";
+		String infos = p_flyable.getInfos();
 		Print.print("Tower says: " + infos + " unregistered from weather tower.");
 	}
 
