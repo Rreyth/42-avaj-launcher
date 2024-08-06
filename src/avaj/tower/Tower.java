@@ -29,7 +29,10 @@ public class Tower {
 		}
 	}
 
-	protected void conditionChanged(){  //update all flyables ? observer.updateConditions()
-
+	protected void conditionChanged(){
+		List<Flyable> copy = new ArrayList<>(observers);
+		for (Flyable flyable : copy){
+			flyable.updateConditions();
+		}
 	}
 }

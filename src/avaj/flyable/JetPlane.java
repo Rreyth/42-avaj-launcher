@@ -10,7 +10,7 @@ public class JetPlane extends Aircraft {
 	}
 
 	@Override
-	public void updateConditions() { //add message for each case
+	public void updateConditions() {
 		String weather = WeatherProvider.getInstance().getCurrentWeather(this.coordinates);
 		int new_latitude = this.coordinates.getLatitude();
 		int new_height = this.coordinates.getHeight();
@@ -20,18 +20,23 @@ public class JetPlane extends Aircraft {
 				new_height += 2;
 				if (new_height > 100)
 					new_height = 100;
+				//msg
 				break;
 			case "RAIN":
 				new_latitude += 5;
+				//msg
 				break;
 			case "FOG":
 				new_latitude += 1;
+				//msg
 				break;
 			case "SNOW":
 				new_height -= 7;
+				//msg
 				if (new_height <= 0)
 					new_height = 0;
-					//landind
+					//msg landing
+					//landing
 				break;
 		}
 		this.coordinates.updateCoordinates(this.coordinates.getLongitude(), new_latitude, new_height);

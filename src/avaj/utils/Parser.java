@@ -9,7 +9,6 @@ import avaj.generators.AircraftFactory;
 import java.util.List;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.io.IOException;
 import java.io.BufferedReader;
 
 public class Parser {

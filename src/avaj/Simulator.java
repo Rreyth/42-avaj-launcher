@@ -31,8 +31,9 @@ public class Simulator {
 	}
 
 	private static void simulate() {
-		// simulation loop
-		// print in file
+		for (int i = 0; i < loop; i++) {
+			weatherTower.changeWeather();
+		}
 	}
 
 	private static Boolean createFile(String name) {
