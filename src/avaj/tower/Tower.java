@@ -22,6 +22,13 @@ public class Tower {
 		Print.print("Tower says: " + infos + " unregistered from weather tower.");
 	}
 
+	//testing
+	public void printObservers(){
+		for (Flyable flyable : observers){
+			Print.print(flyable.getInfos());
+		}
+	}
+
 	protected void conditionChanged(){  //update all flyables ? observer.updateConditions()
 
 	}

@@ -1,13 +1,9 @@
 package avaj;
 
-import avaj.flyable.*;
-import avaj.generators.*;
 import avaj.utils.*;
 import avaj.tower.*;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import avaj.flyable.*;
+import avaj.generators.*;
 
 public class Simulator {
 	private static int loop = 0;
@@ -16,38 +12,17 @@ public class Simulator {
 
 	public static void main(String[] args) {
 		if (args.length == 1) {
-			Simulator.parser(args[0]);
-			// Simulator.simulate();
+			loop = Parser.parseFile(args[0], factory, weatherTower);
+			if (loop == -1) {
+				return;
+			}
+			Print.print("Loop: " + loop);
+			weatherTower.printObservers();
+			// simulate();
 		}
 		else { //exception
 			System.out.println("Usage: java avaj.Simulator scenario.txt");
 		}
-	}
-
-	private static void parser(String path) {
-		try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-			String line = reader.readLine();
-			// Simulator.lineVerifier(line);
-			Simulator.loop = Integer.parseInt(line);
-			line = reader.readLine();
-			while (line != null) {
-				// Print.print(line);
-				// Simulator.lineVerifier(line);
-				String[] parts = line.split(" ");
-				Flyable aircraft = Simulator.factory.newAircraft(parts[0], parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
-				aircraft.registerTower(Simulator.weatherTower);
-				line = reader.readLine();
-			}
-		}		
-		catch (IOException e) { // replace with own exceptions
-			Print.printErr("Error parsing file: " + e.getMessage());
-			//exit ?
-		}
-	}
-
-	private static void lineVerifier(String line) {
-		// check if line is valid
-		// if not, throw exception
 	}
 
 	private static void simulate() {
