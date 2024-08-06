@@ -24,9 +24,12 @@ public class Simulator {
 				return;
 			}
 			simulate();
+			Print.print("Simulation complete");
+			Print.print("Output written to simulation.txt");
 		}
 		else {
-			Print.print("Usage: java avaj.Simulator scenario.txt");
+			Print.printErr("Error: Invalid number of arguments");
+			Print.printErr("Usage: java -cp src avaj.Simulator <scenario file>");
 		}
 	}
 
