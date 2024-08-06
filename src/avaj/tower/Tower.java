@@ -22,13 +22,6 @@ public class Tower {
 		Print.printToFile("Tower says: " + infos + " unregistered from weather tower.\n", "simulation.txt");
 	}
 
-	//testing
-	public void printObservers(){
-		for (Flyable flyable : observers){
-			Print.print(flyable.getInfos());
-		}
-	}
-
 	protected void conditionChanged(){
 		List<Flyable> copy = new ArrayList<>(observers);
 		for (Flyable flyable : copy){

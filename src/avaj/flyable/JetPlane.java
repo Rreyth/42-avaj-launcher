@@ -1,5 +1,6 @@
 package avaj.flyable;
 
+import avaj.utils.Print;
 import avaj.flyable.Aircraft;
 import avaj.generators.WeatherProvider;
 
@@ -11,34 +12,35 @@ public class JetPlane extends Aircraft {
 
 	@Override
 	public void updateConditions() {
-		String weather = WeatherProvider.getInstance().getCurrentWeather(this.coordinates);
-		int new_latitude = this.coordinates.getLatitude();
-		int new_height = this.coordinates.getHeight();
+		String weather = WeatherProvider.getInstance().getCurrentWeather(coordinates);
+		int new_latitude = coordinates.getLatitude();
+		int new_height = coordinates.getHeight();
 		switch (weather) {
 			case "SUN":
 				new_latitude += 10;
 				new_height += 2;
 				if (new_height > 100)
 					new_height = 100;
-				//msg
+				Print.printToFile(getInfos() + ": Looks like I'm gonna need some sunscreen.\n", "simulation.txt");
 				break;
 			case "RAIN":
 				new_latitude += 5;
-				//msg
+				Print.printToFile(getInfos() + ": It'll take eternity to dry.\n", "simulation.txt");
 				break;
 			case "FOG":
 				new_latitude += 1;
-				//msg
+				Print.printToFile(getInfos() + ": I can't see anything.\n", "simulation.txt");
 				break;
 			case "SNOW":
 				new_height -= 7;
-				//msg
-				if (new_height <= 0)
-					new_height = 0;
-					//msg landing
-					//landing
+				Print.printToFile(getInfos() + ": John Snow is that you?\n", "simulation.txt");
+				if (new_height <= 0) {
+					Print.printToFile(getInfos() + " landing.\n", "simulation.txt");
+					unregisterTower();
+					return;
+				}
 				break;
 		}
-		this.coordinates.updateCoordinates(this.coordinates.getLongitude(), new_latitude, new_height);
+		coordinates.updateCoordinates(coordinates.getLongitude(), new_latitude, new_height);
 	}
 }

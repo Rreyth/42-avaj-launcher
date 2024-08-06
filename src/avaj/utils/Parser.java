@@ -45,21 +45,21 @@ public class Parser {
 
 	public static void lineVerifier(String line, int nb) throws AvajException {
 		if (nb == 1 && !isPositiveInt(line)) {
-			throw new AvajException("Error in line " + nb + ": first line must be a positive integer (number of simulation loops)");
+			throw new AvajException("Error in line " + nb + ": First line must be a positive integer (number of simulation loops)");
 		}
 		else if (nb != 1) {
 			String[] parts = line.split(" ");
 			if (parts.length != 5) {
-				throw new AvajException("Error in line " + nb + ": line must contain 5 parts");
+				throw new AvajException("Error in line " + nb + ": Line must contain 5 parts");
 			}
 			if (!validType(parts[0])) {
-				throw new AvajException("Error in line " + nb + ": invalid aicraft type");
+				throw new AvajException("Error in line " + nb + ": Invalid aircraft type");
 			}
 			if (!isPositiveInt(parts[2]) || !isPositiveInt(parts[3]) || !isPositiveInt(parts[4])) {
-				throw new AvajException("Error in line " + nb + ": coordinates must be positive integers");
+				throw new AvajException("Error in line " + nb + ": Coordinates must be positive integers");
 			}
 			if (Integer.parseInt(parts[4]) > 100) {
-				throw new AvajException("Error in line " + nb + ": height must be less or equal to 100");
+				throw new AvajException("Error in line " + nb + ": Height must be less or equal to 100");
 			}
 		}
 	}

@@ -4,6 +4,7 @@ import avaj.flyable.Baloon;
 import avaj.flyable.Flyable;
 import avaj.flyable.JetPlane;
 import avaj.flyable.Helicopter;
+import avaj.utils.AvajException;
 
 public class AircraftFactory {
 	private static AircraftFactory instance;
@@ -19,7 +20,7 @@ public class AircraftFactory {
 		return instance;
 	}
 
-	public Flyable newAircraft(String p_type, String p_name, int p_longitude, int p_latitude, int p_height) {
+	public Flyable newAircraft(String p_type, String p_name, int p_longitude, int p_latitude, int p_height) throws AvajException {
 		id++;
 		if (p_type.equals("Baloon")) {
 			return new Baloon(id, p_name, p_longitude, p_latitude, p_height);
@@ -31,8 +32,7 @@ public class AircraftFactory {
 			return new Helicopter(id, p_name, p_longitude, p_latitude, p_height);
 		}
 		else {
-			id--;
-			return null; // throw custom exception
+			throw new AvajException("Error: Invalid aircraft type");
 		}
 	}
 }
