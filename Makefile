@@ -7,7 +7,7 @@ compile: find
 	@javac @sources.txt
 
 clean:
-	@rm -f sources.txt
+	@rm -f sources.txt simulation.txt
 	@find * -name "*.class" -type f -delete
 
 fclean: clean

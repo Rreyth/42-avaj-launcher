@@ -2,6 +2,7 @@ package avaj.utils;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.BufferedWriter;
 
 public class Print {
 	public static void print(Object p_message) {
@@ -13,10 +14,10 @@ public class Print {
 	}
 
 	public static void printToFile(String p_message, String path) {
-		try (FileWriter writer = new FileWriter(path)) {
-			writer.write(p_message);
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
+            writer.write(p_message);
 		}
-		catch (IOException e) { //replace with own exceptions
+		catch (IOException e) {
 			printErr("Error writing to file: " + e.getMessage());
 		}
 	}

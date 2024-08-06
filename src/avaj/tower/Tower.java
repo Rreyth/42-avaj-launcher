@@ -13,13 +13,13 @@ public class Tower {
 	public void register(Flyable p_flyable){
 		observers.add(p_flyable);
 		String infos = p_flyable.getInfos();
-		Print.print("Tower says: " + infos + " registered to weather tower.");
+		Print.printToFile("Tower says: " + infos + " registered to weather tower.\n", "simulation.txt");
 	}
 
 	public void unregister(Flyable p_flyable){
 		observers.remove(p_flyable);
 		String infos = p_flyable.getInfos();
-		Print.print("Tower says: " + infos + " unregistered from weather tower.");
+		Print.printToFile("Tower says: " + infos + " unregistered from weather tower.\n", "simulation.txt");
 	}
 
 	//testing

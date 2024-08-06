@@ -5,6 +5,9 @@ import avaj.tower.*;
 import avaj.flyable.*;
 import avaj.generators.*;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class Simulator {
 	private static int loop = 0;
 	private static AircraftFactory factory = AircraftFactory.getInstance();
@@ -12,30 +15,34 @@ public class Simulator {
 
 	public static void main(String[] args) {
 		if (args.length == 1) {
-			loop = Parser.parseFile(args[0], factory, weatherTower);
-			if (loop == -1) {
+			if (!createFile("simulation.txt")) {
 				return;
 			}
-			Print.print("Loop: " + loop);
-			weatherTower.printObservers();
-			// simulate();
+			loop = Parser.parseFile(args[0], factory, weatherTower);
+			if (loop == -1) {
+				new File("simulation.txt").delete();
+				return;
+			}
+			simulate();
 		}
-		else { //exception
-			System.out.println("Usage: java avaj.Simulator scenario.txt");
+		else {
+			Print.print("Usage: java avaj.Simulator scenario.txt");
 		}
 	}
 
 	private static void simulate() {
 		// simulation loop
-		// save in string
-
-		// end: save to file
-		// this.saveToFile("");
+		// print in file
 	}
 
-	private static void saveToFile(String save) {
-		// create file or open and rewrite
-		// Print.printToFile(save, filepath);
+	private static Boolean createFile(String name) {
+		try (FileOutputStream fos = new FileOutputStream("simulation.txt", false)) {
+		}
+		catch (Exception e) {
+			Print.printErr("Error creating file: " + e.getMessage());
+			return false;
+		}
+		return true;
 	}
 }
 
